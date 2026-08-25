@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCode Browser"
+  short_description: "Control CCode browser tabs with agents"
+  default_prompt: "Use $ccode-browser to inspect and interact with the active CCode browser tabs."
