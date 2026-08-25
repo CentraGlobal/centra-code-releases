@@ -1,6 +1,6 @@
 # CLI reference
 
-Use CCode's installed CLI alias to control the running CCode desktop process. Try `ccode browser --help` first. If the `ccode` executable is not installed, try `zed browser --help`; current macOS packages may retain that alias. Use whichever command exposes the `browser` subcommand consistently for the whole run. The examples below use `ccode`; replace only that executable name with `zed` when discovery selected it.
+Use the installed `ccode` CLI to control the running CCode desktop process. Confirm it with `ccode browser --help`. If `ccode` is unavailable, ask the user to install the CCode CLI; do not fall back to `zed`, because that command belongs to Zed builds.
 
 Commands return one JSON response; browser failures also use a nonzero exit status. CCode 1.18.0 or later is required.
 
