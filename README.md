@@ -27,3 +27,17 @@ $skill-installer install the ccode-browser skill from https://github.com/CentraG
 For other clients implementing the [open Agent Skills standard](https://agentskills.io/specification), install or copy the entire `skills/ccode-browser` directory into that client's skill directory. Keep the referenced files with `SKILL.md`; copying only the entrypoint produces an incomplete installation.
 
 Use a tagged skill release when a pinned version is required. Use the folder on `main` for the latest published instructions.
+
+### PR Labeling
+
+[`pr-labeling`](skills/pr-labeling/SKILL.md) teaches agents to inspect a pull request, reuse the repository's existing labels, and apply a small evidence-backed label set. It creates missing labels only when authorized, avoids duplicate taxonomy, and keeps review or workflow-trigger labels opt-in.
+
+The bundled Centra Workspace reference maps canonical component paths and documents the established payment, provider, staging, and manual-testing label semantics. The skill expects an authenticated GitHub CLI with permission to read or update labels in the target repository.
+
+For Codex, ask the built-in skill installer:
+
+```text
+$skill-installer install the pr-labeling skill from https://github.com/CentraGlobal/centra-code-releases/tree/main/skills/pr-labeling
+```
+
+For other Agent Skills-compatible clients, install or copy the complete `skills/pr-labeling` directory so its Centra-specific reference remains available.
