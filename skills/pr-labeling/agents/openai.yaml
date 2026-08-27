@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Labeling"
+  short_description: "Label PRs consistently from repository evidence"
+  default_prompt: "Use $pr-labeling to inspect this pull request and apply consistent labels."
