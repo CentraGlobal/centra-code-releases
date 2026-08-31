@@ -3,7 +3,7 @@ name: ccode-extension-builder
 description: Build, validate, live-activate, reload, and debug CCode extensions, including commands, configurable keybindings, panes, panels, docks, status items, and modals. Use for creating or updating a CCode extension; do not use for ordinary application features compiled directly into CCode.
 metadata:
   author: "CentraGlobal"
-  version: "1.0.0"
+  version: "1.0.1"
   repository: "https://github.com/CentraGlobal/centra-code-releases"
   ccode-requirement: "CCode 1.19.0 or later running with the ccode CLI on PATH."
 ---
