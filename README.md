@@ -12,6 +12,20 @@ CCode does not install a `zed` command. That name remains available to Zed's own
 
 ## Agent skills
 
+### CCode Extension Builder
+
+[`ccode-extension-builder`](skills/ccode-extension-builder/SKILL.md) teaches Agent Skills-compatible coding agents to validate, build, live-activate, watch, reload, and debug CCode extensions through the `ccode extension` CLI. It documents configurable extension commands and keybindings plus native panes, panels, docks, status items, and modals.
+
+The skill requires CCode 1.19.0 or later. That release bundles the skill and provisions managed copies for supported local coding agents; this repository remains the public, independently installable source.
+
+For Codex, ask the built-in skill installer:
+
+```text
+$skill-installer install the ccode-extension-builder skill from https://github.com/CentraGlobal/centra-code-releases/tree/main/skills/ccode-extension-builder
+```
+
+For other Agent Skills-compatible clients, install or copy the complete `skills/ccode-extension-builder` directory. Keep both reference files with `SKILL.md` so agents have the live-development protocol and contribution schema.
+
 ### CCode Browser
 
 [`ccode-browser`](skills/ccode-browser/SKILL.md) teaches Agent Skills-compatible coding agents when and how to control CCode's built-in browser through its preinstalled MCP server or browser CLI. It covers the visible collaboration cursor, semantic locators, forms, dropdowns, uploads, drag and drop, and parallel work across tabs.
