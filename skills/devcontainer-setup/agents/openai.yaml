@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dev Container Setup"
+  short_description: "Build safe project-specific dev containers"
+  default_prompt: "Use $devcontainer-setup to inspect this repository and create a safe, project-specific dev-container setup with a developer checklist."

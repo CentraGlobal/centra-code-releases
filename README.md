@@ -41,3 +41,15 @@ $skill-installer install the pr-labeling skill from https://github.com/CentraGlo
 ```
 
 For other Agent Skills-compatible clients, install or copy the complete `skills/pr-labeling` directory so its Centra-specific reference remains available.
+
+### Dev Container Setup
+
+[`devcontainer-setup`](skills/devcontainer-setup/SKILL.md) teaches agents to inspect a project's actual runtimes, dependencies, services, commands, ports, and environment variables before creating a minimal `.devcontainer` setup. It includes CCode-compatible `environments.json` declarations, safety boundaries for secrets and host access, proportional validation, and a project-specific checklist for the developer to finish.
+
+For Codex, ask the built-in skill installer:
+
+```text
+$skill-installer install the devcontainer-setup skill from https://github.com/CentraGlobal/centra-code-releases/tree/main/skills/devcontainer-setup
+```
+
+For other Agent Skills-compatible clients, install or copy the complete `skills/devcontainer-setup` directory so its CCode environment reference remains available.
