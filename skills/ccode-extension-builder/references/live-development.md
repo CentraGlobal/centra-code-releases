@@ -29,7 +29,7 @@ ccode extension status [<extension-id>] --json
 ccode extension logs <extension-id> --follow --json
 ```
 
-`reload`, `deactivate`, `status`, and `logs` require a running CCode app. Do not silently launch a new UI process unless the user requested it.
+All extension commands are handled by the CCode desktop app. The standard CLI launcher connects to a running app and starts CCode when needed.
 
 ## Install from an origin
 
