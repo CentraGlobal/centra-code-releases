@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCode Extension Builder"
+  short_description: "Build and live-activate CCode extensions"
+  default_prompt: "Use $ccode-extension-builder to build, validate, and live-activate a CCode extension."
