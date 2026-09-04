@@ -6,6 +6,9 @@ Use this mode when the host exposes CCode browser tools. The visible tool name m
 
 | Tool suffix | Use |
 | --- | --- |
+| `browser_recording_status` | Inspect whether this MCP session is being recorded, its capture policy, timeline offset, and degraded reasons. |
+| `browser_recording_events` | Query active or saved recording events newest first, with sequence, kind, and tab filters. |
+| `browser_recording_comment` | Add a concise comment now or at an exact prior event, sequence, or offset in the active recording. |
 | `browser_list_tabs` | Discover stable tab IDs, URLs, titles, loading state, and the active tab. |
 | `browser_open_tab` | Open an optional HTTPS or loopback URL and choose whether it is active. |
 | `browser_close_tab` | Close one known tab. |
@@ -62,6 +65,41 @@ Add `scope` to any locator to constrain it beneath one CSS container. Add zero-b
 5. Snapshot again when the result matters.
 
 For a custom dropdown that is not directly selectable, click the trigger, snapshot the opened menu, then click the option by role or text. Native and supported ARIA selects should use `browser_select` with their option values.
+
+## Recording queries and comments
+
+Check recording state before relying on recorded output:
+
+```json
+{}
+```
+
+Call the empty object above with `browser_recording_status`. Ordinary recorded tool results include a `recording` reference containing `recording_id`, `event_id`, `sequence`, and `offset_ms`.
+
+Use `browser_recording_events` without a recording ID for the active MCP session:
+
+```json
+{"kinds":["automation","console","network","comment"],"limit":100}
+```
+
+Use an attached ID to inspect an active or completed recording:
+
+```json
+{"recording_id":"rec_EXAMPLE","limit":100}
+```
+
+Results are newest first. If `truncated` is true, set `before_sequence` to the lowest returned sequence and repeat. `after_sequence` and `before_sequence` are exclusive. The maximum page size is 500.
+
+When a result identifies an important moment, call `browser_recording_comment` with its exact event ID:
+
+```json
+{
+  "text":"Checkout failed after the API returned 500",
+  "anchor":{"type":"event","event_id":"event_EXAMPLE","placement":"at"}
+}
+```
+
+Use `type: "sequence"` with `sequence` and optional `placement`, or `type: "offset"` with `offset_ms`, when no event ID is available. Omit `anchor` to comment at the current moment. Comments can only be added to the active session recording. Read [recordings.md](recordings.md) for event, attachment, and privacy semantics.
 
 ## Parallel batch
 
