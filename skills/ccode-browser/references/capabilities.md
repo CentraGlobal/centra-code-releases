@@ -35,12 +35,20 @@ Public navigation accepts HTTPS. Plain HTTP is limited to loopback development U
 
 A snapshot returns an agent-oriented representation: current URL, title, visible text, and semantic interactive elements. It is not a screenshot, full DOM export, accessibility-tree dump, or guarantee that offscreen and hidden content is included.
 
+## Recording boundary
+
+- Browser recording is off by default and controlled by the user in CCode's privacy settings. Automation begins and ends the recording with its session when the setting is enabled.
+- Depending on that policy, the local recording can contain real viewport frames, automation and cursor events, redacted console messages, and network metadata, redacted headers, or bounded redacted bodies. Treat the recording as sensitive even after best-effort redaction.
+- Excluded origins suppress page content from the recording. Capture can also degrade or stop at its configured storage limit; inspect recording status and degraded reasons instead of assuming completeness.
+- MCP and CLI event queries return structured event metadata and details, not frame image bytes. The native Recording Player renders captured frames; a single event attached from that player can include its nearest frame.
+- A whole-recording thread attachment contains its recording ID and retrieval instructions. Paginate every event only when the user's task requires the complete timeline.
+
 ## Not provided by this interface
 
 - Arbitrary page JavaScript evaluation
 - Browser context, cookie, local-storage, or permission manipulation
-- Network interception, request mocking, or response-body capture
-- Pixel screenshots or coordinate-level mouse control
+- Network interception or request mocking. Recording may retain configured network data, but cannot alter traffic.
+- Ad hoc pixel screenshots or coordinate-level mouse control. Recording frames are available through the native player rather than event-query image payloads.
 - Playwright selectors or Playwright test execution
 - Download lifecycle management
 

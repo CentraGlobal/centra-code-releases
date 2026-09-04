@@ -28,9 +28,9 @@ For other Agent Skills-compatible clients, install or copy the complete `skills/
 
 ### CCode Browser
 
-[`ccode-browser`](skills/ccode-browser/SKILL.md) teaches Agent Skills-compatible coding agents when and how to control CCode's built-in browser through its preinstalled MCP server or browser CLI. It covers the visible collaboration cursor, semantic locators, forms, dropdowns, uploads, drag and drop, and parallel work across tabs.
+[`ccode-browser`](skills/ccode-browser/SKILL.md) teaches Agent Skills-compatible coding agents when and how to control CCode's built-in browser through its preinstalled MCP server or browser CLI. It covers the visible collaboration cursor, semantic locators, forms, dropdowns, uploads, drag and drop, parallel work across tabs, and locally recorded browser timelines with exact agent comments and event retrieval.
 
-The skill requires CCode 1.18.0 or later. Its CLI examples use the supported `ccode browser` command.
+The skill requires CCode 1.19.0 or later. Its CLI examples use the supported `ccode browser` command.
 
 For Codex, ask the built-in skill installer:
 

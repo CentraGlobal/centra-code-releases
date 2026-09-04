@@ -26,6 +26,38 @@ ccode browser --session "agent-run-123" session end
 
 Do not leave the session open merely to keep the cursor visible after the agent has finished. If the process exits unexpectedly, the lease removes it.
 
+## Inspect and annotate recordings
+
+Recording starts automatically with the cursor session only when the user has enabled it in CCode's privacy settings. Check status before relying on it:
+
+```sh
+ccode browser --session "agent-run-123" recording status
+```
+
+Read the active recording timeline newest first:
+
+```sh
+ccode browser --session "agent-run-123" recording events --kind automation --kind console --kind network --limit 100
+```
+
+Read a recording attached to a thread, including after its original session has ended:
+
+```sh
+ccode browser recording events --recording-id "rec_EXAMPLE" --limit 100
+```
+
+If the result has `"truncated": true`, repeat with `--before-sequence` set to the lowest returned sequence. `--after-sequence` and `--before-sequence` are exclusive. Use `--tab` to restrict results to one stable tab ID; the maximum page size is 500.
+
+Recorded command responses include a recording reference. Anchor a useful comment to its exact event ID:
+
+```sh
+ccode browser --session "agent-run-123" recording comment "Checkout failed after the API returned 500" --event "event_EXAMPLE" --placement at
+```
+
+Use `--sequence NUMBER --placement before|at|after` or `--offset-ms MILLISECONDS` for a prior timeline point without an event ID. Omit all anchor flags to comment at the current moment. Only one anchor flag is allowed, and comments require the active session recording.
+
+Read [recordings.md](recordings.md) for guidance on meaningful comments, attachments, event data, and privacy.
+
 ## Discover and inspect tabs
 
 ```sh
