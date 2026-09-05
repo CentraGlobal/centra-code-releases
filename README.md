@@ -12,6 +12,20 @@ CCode does not install a `zed` command. That name remains available to Zed's own
 
 ## Agent skills
 
+### Centra Change Risk Review
+
+[`centra-change-risk-review`](skills/centra-change-risk-review/SKILL.md) is a required-gate review workflow for Centra changes. It checks sync-engine inbound and outbound compatibility, PR size and cohesion, existing-data and migration safety, test coverage, and scale or downtime risk before recommending approval, push, or merge.
+
+Its integration reference requires strict base-versus-head provider tests with isolated mocks, including Pluriel External PMS outbound invariants and room-aware HotelRunner channel mapping cases. Internal fields such as channel data must not leak into unchanged External PMS contracts.
+
+For Codex, ask the built-in skill installer:
+
+```text
+$skill-installer install the centra-change-risk-review skill from https://github.com/CentraGlobal/centra-code-releases/tree/main/skills/centra-change-risk-review
+```
+
+For other Agent Skills-compatible clients, install or copy the complete `skills/centra-change-risk-review` directory so the compatibility-test reference remains available.
+
 ### CCode Extension Builder
 
 [`ccode-extension-builder`](skills/ccode-extension-builder/SKILL.md) teaches Agent Skills-compatible coding agents to validate, build, live-activate, watch, reload, and debug CCode extensions through the `ccode extension` CLI. It documents configurable extension commands and keybindings plus native panes, panels, docks, status items, and modals.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Centra Change Risk Review"
+  short_description: "Gate Centra PRs for compatibility and runtime risk"
+  default_prompt: "Use $centra-change-risk-review to decide whether this change is safe to approve, push, or merge."
