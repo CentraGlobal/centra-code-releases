@@ -12,6 +12,18 @@ CCode does not install a `zed` command. That name remains available to Zed's own
 
 ## Agent skills
 
+### Isolated Container Test
+
+[`isolated-container-test`](skills/isolated-container-test/SKILL.md) teaches agents to discover a repository's real Docker, Compose, Dev Container, migration, seed, and test setup and operate it as a disposable worktree-safe runtime. It generates collision-resistant project identities, protects credentials and shared systems, supports validated manual handoff, and verifies exact cleanup.
+
+For Codex, ask the built-in skill installer:
+
+```text
+$skill-installer install the isolated-container-test skill from https://github.com/CentraGlobal/centra-code-releases/tree/main/skills/isolated-container-test
+```
+
+For other Agent Skills-compatible clients, install or copy the complete `skills/isolated-container-test` directory. Keep its scripts and references with `SKILL.md`; the entrypoint alone cannot discover, identify, or verify cleanup of a runtime.
+
 ### Centra Change Risk Review
 
 [`centra-change-risk-review`](skills/centra-change-risk-review/SKILL.md) is a required-gate review workflow for Centra changes. It checks sync-engine inbound and outbound compatibility, PR size and cohesion, existing-data and migration safety, test coverage, and scale or downtime risk before recommending approval, push, or merge.
