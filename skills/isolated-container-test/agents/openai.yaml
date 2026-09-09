@@ -1,0 +1,4 @@
+interface:
+  display_name: "Isolated Container Test"
+  short_description: "Test projects in disposable Docker environments"
+  default_prompt: "Use $isolated-container-test to create an isolated temporary test runtime for this project, validate it, and either clean it up or hand it off as requested."
